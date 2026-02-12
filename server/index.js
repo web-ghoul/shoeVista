@@ -1,7 +1,7 @@
-import express from "express";
-import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
 import router from "./routes/productRoutes.js";
 
 dotenv.config();
@@ -11,6 +11,8 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
+
+app.use("/api", router);
 
 const PORT = process.env.PORT || 5000;
 

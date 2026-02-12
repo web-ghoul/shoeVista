@@ -1,7 +1,7 @@
 import Products from "../models/productModel.js";
 
 //Get all products 
-export const getProducts = async (req, res) => {
+export const getProducts = async (_, res) => {
     try {
         const products = await Products.find();
         res.status(200).json(products);
@@ -53,7 +53,7 @@ export const getByCategory = async (req, res) => {
 }
 
 //Get top rated 
-export const getTopRated = async (req, res) => {
+export const getTopRated = async (_, res) => {
     try {
         const topRatedShoes = await Products.find()
             .sort({ rating: -1 })
@@ -66,7 +66,7 @@ export const getTopRated = async (req, res) => {
 }
 
 //Get best Sellers
-export const getBestSellers = async (req, res) => {
+export const getBestSellers = async (_, res) => {
     try {
         const products = await Products.find()
             .sort({ reviews: -1 })
